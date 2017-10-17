@@ -35,5 +35,4 @@ def randomSong():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 17995))
-    print port
     app.run(port=port)
