@@ -2,7 +2,7 @@ import requests, json
 from random import randint
 import xml.etree.cElementTree as xml_generator
 from flask import Flask
-
+import os
 
 app = Flask(__name__)
 
@@ -29,7 +29,11 @@ def randomSong():
     #return tree
     xmlstr = xml_generator.tostring(root, encoding='utf8', method='xml')
 
+
+
     return xmlstr
 
 if __name__ == "__main__":
-    app.run(port=33507)
+    port = int(os.environ.get("PORT", 17995))
+    print port
+    app.run(port=port)
