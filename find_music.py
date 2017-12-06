@@ -40,7 +40,6 @@ def randomSongFredrik():
     headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
     r = requests.get(url, headers=headers)
     data = r.json()
-    print data
     trackList = data[0]['tracks']
 
     trackListEndIndex = len(trackList)
