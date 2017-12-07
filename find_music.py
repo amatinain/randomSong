@@ -35,7 +35,8 @@ def randomSong():
 
 @app.route('/randomSongFredrik', methods=['GET', 'POST'])
 def randomSongFredrik():
-    
+
+
     url = 'http://api.soundcloud.com/users/360738818/playlists?client_id=kxAmiOgF0oIIrpO5GbCYrw97bTkIGCe3'
     headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
     r = requests.get(url, headers=headers)
@@ -49,9 +50,9 @@ def randomSongFredrik():
     streamTrackUrl = 'http://api.soundcloud.com/tracks/' + trackId + '/stream?client_id=kxAmiOgF0oIIrpO5GbCYrw97bTkIGCe3'
 
     root = xml_generator.Element("Response")
-    say = xml_generator.SubElement(root, "Say").text = 'Welcome to Twilio conference, joining you now'
+    say = xml_generator.SubElement(root, "Say").text = 'Welcome to Fredriks conference line hosted by Twilio'
     dial = xml_generator.SubElement(root, "Dial")
-    conference = xml_generator.SubElement(dial, "Conference", waitUrl=streamTrackUrl).text = "Fredrik_conference"
+    conference = xml_generator.SubElement(dial, "Conference", waitUrl=streamTrackUrl).text = "FredriksConference"
     tree = xml_generator.ElementTree(root)
     #return tree
     xmlstr = xml_generator.tostring(root, encoding='utf8', method='xml')
